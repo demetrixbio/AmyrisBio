@@ -599,7 +599,7 @@ module SuffixTree =
                                                     // read only access
                                                     MemoryMappedFiles.MemoryMappedFileAccess.Read,
                                                     // not configuring security
-                                                    null,
+                                                    //null,
                                                     HandleInheritability.None,
                                                     false
                                                   )
