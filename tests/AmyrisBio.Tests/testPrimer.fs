@@ -159,4 +159,28 @@ type TestPrimer() = class
                 if verbose then printfn "tail is %d for %s" tail template
                 Assert.IsTrue(tail<4)
 
+        let p = oligoDesignWithCompromise false pen task
+        Assert.IsTrue(p.IsSome)
+    [<Test>]
+    /// Test degenerate template
+    member __.TestDegenerateTmCalc() =
+        let templates=
+                [
+                  "NNNNNNNNNNNN"
+                  "GNNNNNNNNNNN"
+                  "NNNNNNNNNNNC"
+                  "ATCGACTGACAN"
+                  "NATCGACTGACA"
+                  "NATCGNNTGACA"
+                  "NANAGNCNATAC"
+                ]
+
+        for template in templates do
+            // Test is to run and ensure it doesn't blow up
+            printf "tm %s = %f" template
+                (Amyris.Bio.primercore.temp 
+                    defaultParams 
+                    (template.ToCharArray()) 
+                    template.Length
+                )
 end
