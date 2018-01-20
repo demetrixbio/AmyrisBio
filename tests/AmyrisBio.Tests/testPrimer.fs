@@ -120,7 +120,32 @@ type TestPrimer() = class
     /// Test GC rich template can make minimum length primer
     member __.TestGCRich() =
         let template="CTGCCGGCGACGTGGAGCGTCCGATTGTGACGCGCCTGAGCAACCCGGGCACGGTGCTGCGCGAGTCGTGCGACGCCTCACTGCTGGTGCAGGCCATCATCGACGCCATCGTCGACCTGGCCGTGCCCCTGACGGCCGCGTACAACGACGT"
-        let p = oligoDesignWithCompromise false testPenalty (makeTask template)
+        let pen={lengthPenalty = 3.0;
+             tmPenalty = 1.0;
+             tmMaxDifference = 5.0<C>;
+             positionPenalty = 5.0;
+             polyLengthThreshold = 4;
+             polyPenalty = 10.0;
+             threePrimeUnstablePenalty = 5.0;
+             ATPenalty = 3.0<C>;
+             maxLength = 60;
+             minLength = 20;
+             targetLength = 20;
+             monovalentConc = 0.05<M>;
+             divalentConc = 0.0015<M>;
+             primerConc = 2.5e-07<M>;
+             templateConc = 1e-08<M>;
+             dNTPConc = 0.0<M>}
+
+        let task = { tag = "PR";
+                     temp = template.ToCharArray()
+                     align = CENTERLEFT;
+                     strand = TOP;
+                     offset = 0;
+                     targetTemp = 60.0<C>;
+                     sequencePenalties = None}
+
+        let p = oligoDesignWithCompromise false pen task
         Assert.IsTrue(p.IsSome)
 
     [<Test>]
@@ -159,12 +184,10 @@ type TestPrimer() = class
                 if verbose then printfn "tail is %d for %s" tail template
                 Assert.IsTrue(tail<4)
 
-        let p = oligoDesignWithCompromise false pen task
-        Assert.IsTrue(p.IsSome)
     [<Test>]
     /// Test degenerate template
     member __.TestDegenerateTmCalc() =
-        let templates=
+        let templates =
                 [
                   "NNNNNNNNNNNN"
                   "GNNNNNNNNNNN"
