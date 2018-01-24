@@ -231,6 +231,7 @@ module utils =
 
     // Registry utils
     // Registry handling    
+    (*
     open Microsoft.Win32
 
     let ensureAmyrisKey () =  
@@ -248,6 +249,7 @@ module utils =
                 key.SetValue(keyName,keyValue)
                 keyValue
 
+    *)
     // Sequence handling routines
     /// Reverse complement a DNA sequence
     /// This version is deprecated, please use biolib.revComp instead
