@@ -1,3 +1,6 @@
+### v2.0.23 --  January 24th, 2018
+* Demetrix release Tm_N implementation, primer dimer fixes
+
 ### v2.0.22 -- August 3, 2017
 * Fix index error in SW alignment.
 

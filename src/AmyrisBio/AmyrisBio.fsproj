@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
      <RootNamespace>Amyris.Bio</RootNamespace>
-     <AssemblyName>Amyris.Bio</AssemblyName>
+     <AssemblyName>Dmx.Amyris.Bio</AssemblyName>
      <Name>Amyris.Bio</Name>
   </PropertyGroup>
   <ItemGroup>

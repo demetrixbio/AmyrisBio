@@ -39,7 +39,7 @@ let summary = "Amyris FSharp BioLib"
 let description = "Amyris FSharp Computational biology library"
 
 // List of author names (for NuGet package)
-let authors = [ "Amyris" ]
+let authors = [ "Amyris";"Demetrix" ]
 
 // Tags for your project (for NuGet package)
 let tags = "CompBio F# FSharp yeast synbio"
