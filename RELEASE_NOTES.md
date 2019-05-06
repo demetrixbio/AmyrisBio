@@ -1,3 +1,6 @@
+### v2.0.24 --  May 6th, 2019
+* Demetrix release - added amino acid properties
+
 ### v2.0.23 --  January 24th, 2018
 * Demetrix release Tm_N implementation, primer dimer fixes
 
