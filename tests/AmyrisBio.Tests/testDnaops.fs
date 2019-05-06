@@ -5,7 +5,23 @@ open Amyris.Bio.dnaops
 open Amyris.Bio.biolib
 open Amyris.Bio.utils
 
-let refTestGenome = @"..\..\test_data\S288C.fsa" |> Amyris.Bio.utils.smashSlash
+open System
+open System.IO
+
+// Annoyingly, the test data folder will vary in relatively position to runtime depending
+// on netcore vs mono/net45 frameworks, so look around till we find it
+let refDataFolder =
+   [Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "test_data"); // net4.5 framework
+    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "test_data")] // dotnetcore
+    |> List.filter System.IO.Directory.Exists
+    |> function
+        | [testDir] -> testDir
+        | [] -> failwith "Test directory not found."
+        | x -> failwithf "Too many test directories found: %O" x
+    |> Amyris.Bio.utils.smashSlash
+
+let refTestGenome = Path.Combine(refDataFolder,"S288C.fsa")
+
 [<TestFixture>]
 type TestDnaops() = class 
     

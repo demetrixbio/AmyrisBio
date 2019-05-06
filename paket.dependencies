@@ -1,5 +1,7 @@
 source https://nuget.org/api/v2
 
+nuget FSharp.Core >= 4.6.0 redirects: force
+
 group Build
   source https://nuget.org/api/v2
   
@@ -11,6 +13,9 @@ group Build
 
 group Test
   source https://nuget.org/api/v2
-  
-  nuget NUnit ~> 2
-  nuget NUnit.Runners ~> 2
+
+  nuget NUnit ~> 3
+  nuget NUnit.ConsoleRunner ~> 3
+  nuget Microsoft.NET.Test.Sdk
+  nuget NUnit3TestAdapter
+
