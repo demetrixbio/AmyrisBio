@@ -3,39 +3,33 @@
 set -eu
 set -o pipefail
 
-cd `dirname $0`
-
-PAKET_BOOTSTRAPPER_EXE=.paket/paket.bootstrapper.exe
-PAKET_EXE=.paket/paket.exe
-FAKE_EXE=packages/build/FAKE/tools/FAKE.exe
-
-FSIARGS=""
-OS=${OS:-"unknown"}
-if [[ "$OS" != "Windows_NT" ]]
-then
-  FSIARGS="--fsiargs -d:MONO"
-fi
-
-function run() {
-  if [[ "$OS" != "Windows_NT" ]]
-  then
-    mono "$@"
-  else
-    "$@"
-  fi
+# liberated from https://stackoverflow.com/a/18443300/433393
+realpath() {
+  OURPWD=$PWD
+  cd "$(dirname "$1")"
+  LINK=$(readlink "$(basename "$1")")
+  while [ "$LINK" ]; do
+    cd "$(dirname "$LINK")"
+    LINK=$(readlink "$(basename "$1")")
+  done
+  REALPATH="$PWD/$(basename "$1")"
+  cd "$OURPWD"
+  echo "$REALPATH"
 }
 
-run $PAKET_BOOTSTRAPPER_EXE
+TOOL_PATH=$(realpath .tool)
+PAKET="$TOOL_PATH"/paket
 
-if [[ "$OS" != "Windows_NT" ]] &&
-       [ ! -e ~/.config/.mono/certs ]
+if ! [ -e "$PAKET" ]
 then
-  mozroots --import --sync --quiet
+  dotnet tool install paket --tool-path "$TOOL_PATH" --version 5.207.0
 fi
+"$PAKET" "restore"
 
-run $PAKET_EXE restore
+FAKE="$TOOL_PATH"/fake
 
-[ ! -e build.fsx ] && run $PAKET_EXE update
-[ ! -e build.fsx ] && run $FAKE_EXE init.fsx
-run $FAKE_EXE "$@" $FSIARGS build.fsx
-
+if ! [ -e "$FAKE" ]
+then
+  dotnet tool install fake-cli --tool-path "$TOOL_PATH" --version 5.13.7
+fi
+"$FAKE" "$@"
