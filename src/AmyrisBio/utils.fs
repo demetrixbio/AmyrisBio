@@ -1,12 +1,10 @@
 namespace Amyris.Bio
 open System
 open System.Text
-open System.Security.Cryptography
 
 /// Non biology routes that are helpful for general process / data ops, some bio IO routines
 module utils =
     open System.IO
-    open System.IO.Compression
     let cmdPath = @"c:\WINDOWS\system32\cmd.exe"
     let bashPath = "/bin/bash"
 
@@ -139,9 +137,9 @@ module utils =
             p.ExitCode,sbOut.ToString(),stdErr
 
     /// Returns files in dir ending with one of a list of suffices
-    let filesEndingWith inDir suffixList =
+    let filesEndingWith (inDir : string) (suffixList : string list) =
         Directory.GetFiles(inDir)
-        |> Seq.filter (fun name -> List.exists (fun suffix -> name.EndsWith(suffix)) suffixList)
+        |> Seq.filter (fun name -> List.exists (fun (suffix : string) -> name.EndsWith(suffix)) suffixList)
 
     /// returns each line in the provided stream
     let eachLineInStream (f:StreamReader) = 
