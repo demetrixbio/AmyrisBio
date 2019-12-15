@@ -114,7 +114,7 @@ Target.create "AssemblyInfo" (fun _ ->
 
     !! "src/**/*.??proj"
     |> Seq.map getProjectDetails
-    |> Seq.iter (fun (projFileName, projectName, folderName, attributes) ->
+    |> Seq.iter (fun (projFileName, _projectName, folderName, attributes) ->
         match projFileName with
         | Fsproj -> AssemblyInfoFile.createFSharp (folderName </> "AssemblyInfo.fs") attributes
         | Csproj -> AssemblyInfoFile.createCSharp ((folderName </> "Properties") </> "AssemblyInfo.cs") attributes
@@ -163,7 +163,6 @@ Target.create "Build" (fun _ ->
 Target.create "RunTests" (fun _ ->
     DotNet.test id "tests/AmyrisBio.Tests")
 
-let paketPath = Path.Combine(".", ".tool", (if Environment.isWindows then "paket.exe" else "paket"))
 
 // --------------------------------------------------------------------------------------
 // Build a NuGet package
@@ -171,18 +170,16 @@ let paketPath = Path.Combine(".", ".tool", (if Environment.isWindows then "paket
 Target.create "NuGet" (fun _ ->
     Paket.pack(fun p ->
         { p with
-            // Workaround until this is fixed: https://github.com/fsharp/FAKE/issues/2242
-            ToolPath = paketPath
             OutputPath = "bin"
             Version = release.NugetVersion
+            ToolType = ToolType.CreateCLIToolReference()
             ReleaseNotes = String.toLines release.Notes})
 )
 
 Target.create "PublishNuget" (fun _ ->
     Paket.push(fun p ->
         { p with
-            // Workaround until this is fixed: https://github.com/fsharp/FAKE/issues/2242
-            ToolPath = paketPath
+            ToolType = ToolType.CreateLocalTool()
             WorkingDir = "bin" })
 )
 
