@@ -1,5 +1,8 @@
-### v2.0.25 --  Dec 11th, 2019
+### v2.0.26 --  Dec 16th, 2019
 * Demetrix release - migrated to netstandard2.1
+
+### v2.0.25 --  May 15th, 2019
+* Demetrix release - maintenance release: updating FAKE + dependencies
 
 ### v2.0.24 --  May 6th, 2019
 * Demetrix release - added amino acid properties
