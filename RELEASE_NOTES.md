@@ -1,3 +1,9 @@
+### v2.0.28 --  Aug 18th, 2020
+* Demetrix release - updating dependencies
+
+### v2.0.27 --  Feb 12th, 2020
+* Demetrix release - downgraded to netstandard2.0
+
 ### v2.0.26 --  Dec 16th, 2019
 * Demetrix release - migrated to netstandard2.1
 
