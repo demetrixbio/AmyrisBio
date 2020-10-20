@@ -1,3 +1,6 @@
+### v2.0.29 --  Oct 20th, 2020
+* Demetrix release - updating dependencies
+
 ### v2.0.28 --  Aug 18th, 2020
 * Demetrix release - updating dependencies
 
