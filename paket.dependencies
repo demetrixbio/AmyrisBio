@@ -1,15 +1,15 @@
 group Build
-  source https://nuget.org/api/v2
+  source https://api.nuget.org/v3/index.json
   storage none
-  framework: >= netstandard2.0,netcoreapp2.0
-  nuget FSharp.Core
+  framework: >= netstandard2.0
+  nuget FSharp.Core ~> 4
 
 group Test
-  source https://nuget.org/api/v2
+  source https://api.nuget.org/v3/index.json
   storage none
-  framework: >= netstandard2.0,netcoreapp2.0
+  framework: >= netstandard2.0
   
-  nuget FSharp.Core
+  nuget FSharp.Core ~> 4
   nuget NUnit ~> 3
   nuget NUnit.ConsoleRunner ~> 3
   nuget Microsoft.NET.Test.Sdk

@@ -1,3 +1,6 @@
+### v2.0.30 --  Oct 21st, 2020
+* Demetrix release - downgrading FSharp.Core
+
 ### v2.0.29 --  Oct 20th, 2020
 * Demetrix release - updating dependencies
 

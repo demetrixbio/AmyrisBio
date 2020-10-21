@@ -4,15 +4,15 @@ GROUP Build
 STORAGE: NONE
 RESTRICTION: >= netstandard2.0
 NUGET
-  remote: https://www.nuget.org/api/v2
-    FSharp.Core (5.0)
+  remote: https://api.nuget.org/v3/index.json
+    FSharp.Core (4.7.2)
 
 GROUP Test
 STORAGE: NONE
 RESTRICTION: >= netstandard2.0
 NUGET
-  remote: https://www.nuget.org/api/v2
-    FSharp.Core (5.0)
+  remote: https://api.nuget.org/v3/index.json
+    FSharp.Core (4.7.2)
     Microsoft.CodeCoverage (16.7.1) - restriction: || (&& (>= net45) (>= netstandard2.0)) (>= netcoreapp2.1)
     Microsoft.DotNet.InternalAbstractions (1.0) - restriction: >= netcoreapp2.1
       System.AppContext (>= 4.1) - restriction: && (< net451) (>= netstandard2.0)
