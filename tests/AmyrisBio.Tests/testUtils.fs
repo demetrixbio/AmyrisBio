@@ -11,7 +11,7 @@ let testPaddedZip() =
     let correctZip =
         [Some(1), Some(1); Some(2), Some(2); None, Some(3); None, Some(4)]
 
-    let check x y correct =
+    let check (x : 'a seq) (y : 'b seq) (correct : ('a option * 'b option) seq) =
         Assert.AreEqual( (zipWithPad x y) |> List.ofSeq, correct)
 
     check smaller larger correctZip

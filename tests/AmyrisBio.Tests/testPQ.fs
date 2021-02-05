@@ -77,9 +77,10 @@ type TestOPQ() = class
     member x.PeekEmpty() =
         let p = Amyris.Bio.pqueue.PQ<int,int>()
         let x = p.PeekN 10
-        Assert.AreEqual(x,[])
+        let empty = [] : (int * int) list
+        Assert.AreEqual(x, empty)
         let x = p.PeekN 1
-        Assert.AreEqual(x,[])
+        Assert.AreEqual(x, empty)
 
     [<Test>]
     member x.Peek100of10000() =

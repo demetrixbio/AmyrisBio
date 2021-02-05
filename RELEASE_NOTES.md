@@ -1,3 +1,6 @@
+### v2.0.31 --  Feb 5th, 2021
+* Demetrix release - upgrading dependencies + dotnet sdk to 5.0.101
+
 ### v2.0.30 --  Oct 21st, 2020
 * Demetrix release - downgrading FSharp.Core
 
