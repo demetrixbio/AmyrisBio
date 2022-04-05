@@ -105,7 +105,7 @@ Target.create "AssemblyInfo" (fun _ ->
           AssemblyInfo.InformationalVersion (Git.Information.getCurrentHash())
           AssemblyInfo.FileVersion release.AssemblyVersion ]
 
-    let getProjectDetails projectPath =
+    let getProjectDetails (projectPath: string) =
         let projectName = System.IO.Path.GetFileNameWithoutExtension(projectPath)
         ( projectPath,
           projectName,
