@@ -2,14 +2,24 @@ group Build
   source https://api.nuget.org/v3/index.json
   storage none
   framework: >= netstandard2.0
-  nuget FSharp.Core ~> 6 
-
+  
+  nuget Fake.Core.Target
+  nuget Fake.IO.FileSystem
+  nuget Fake.Core.Environment
+  nuget Fake.DotNet.Cli
+  nuget Fake.DotNet.MSBuild
+  nuget Fake.DotNet.AssemblyInfoFile
+  nuget Fake.DotNet.Paket
+  nuget Fake.Tools.Git
+  nuget Fake.Core.Target
+  nuget Fake.Core.ReleaseNotes
+  nuget Fake.Core.UserInput
+  nuget Fake.Api.GitHub
+  
 group Test
   source https://api.nuget.org/v3/index.json
   storage none
   framework: >= netstandard2.0
-  
-  nuget FSharp.Core ~> 6
   nuget NUnit ~> 3
   nuget NUnit.ConsoleRunner ~> 3
   nuget Microsoft.NET.Test.Sdk
