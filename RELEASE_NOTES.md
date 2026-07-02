@@ -1,5 +1,4 @@
-### v2.0.33 -- Jul 2nd, 2026
-
+### v2.0.33 -- 2026-07-02
 * Demetrix release - upgrading dependencies + dotnet sdk to 10.0.301
 
 ### v2.0.32 --  Apr 5th, 2022

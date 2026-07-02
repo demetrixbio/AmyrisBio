@@ -60,6 +60,9 @@ let gitRaw =
 // Read additional information from the release notes document
 let release = ReleaseNotes.load "RELEASE_NOTES.md"
 
+printfn "Building version: %s" release.NugetVersion
+printfn "Building assembly version: %s" release.AssemblyVersion
+
 // Helper active pattern for project types
 let (|Fsproj|Csproj|Vbproj|Shproj|) (projFileName: string) =
     match projFileName with
@@ -138,7 +141,7 @@ let initTargets () =
         Paket.pack (fun p ->
             { p with
                 OutputPath = "bin"
-                Version = release.NugetVersion
+                Version = release.AssemblyVersion
                 ToolType = ToolType.CreateCLIToolReference()
                 ReleaseNotes = String.toLines release.Notes }))
 
