@@ -2,4 +2,4 @@
 
 dotnet tool restore
 dotnet paket restore
-dotnet fake "$@"
+dotnet run --project Build/Build.fsproj "$@"

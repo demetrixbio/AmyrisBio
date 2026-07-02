@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/.paket/">
+    <File Path="paket.dependencies" />
+    <File Path="paket.lock" />
+  </Folder>
+  <Folder Name="/project/">
+    <File Path="README.md" />
+    <File Path="RELEASE_NOTES.md" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/AmyrisBio.Tests/AmyrisBio.Tests.fsproj" />
+  </Folder>
+  <Project Path="Build/Build.fsproj" />
+  <Project Path="src/AmyrisBio/AmyrisBio.fsproj" />
+</Solution>

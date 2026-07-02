@@ -1,0 +1,13 @@
+group Build
+
+Fake.Core.Target
+Fake.IO.FileSystem
+Fake.Core.Environment
+Fake.DotNet.Cli
+Fake.DotNet.MSBuild
+Fake.DotNet.AssemblyInfoFile
+Fake.DotNet.Paket
+Fake.Tools.Git
+Fake.Core.ReleaseNotes
+Fake.Core.UserInput
+Fake.Api.GitHub
