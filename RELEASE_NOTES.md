@@ -1,3 +1,6 @@
+### v2.1.0 -- 2026-07-06
+* switch to net10.0 target to fix obscure init bug
+
 ### v2.0.33 -- 2026-07-02
 * Demetrix release - upgrading dependencies + dotnet sdk to 10.0.301
 
