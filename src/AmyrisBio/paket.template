@@ -4,15 +4,15 @@ owners
 authors 
     Amyris
 projectUrl
-    http://github.com/Amyris/Amyris.Bio
+    http://github.com/demetrixbio/AmyrisBio
 iconUrl
     https://raw.githubusercontent.com/Amyris/Amyris.Bio/master/docs/files/img/amyris_logo.png
 licenseUrl
-    http://github.com/Amyris/Amyris.Bio/blob/master/LICENSE.txt
+    https://github.com/demetrixbio/AmyrisBio/blob/master/LICENSE.txt
 requireLicenseAcceptance
     false
 copyright
-    Copyright 2019
+    Copyright 2016
 tags
     CompBio F# yeast synbio
 summary
